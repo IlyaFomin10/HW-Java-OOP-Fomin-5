@@ -65,7 +65,7 @@ public class RobotGameMain {
                 public void runCommand(String[] args) {
                     int x = Integer.parseInt(args[0]);
                     int y = Integer.parseInt(args[1]);
-                    RobotMap.Robot robot = map.createRobot(new Point(x, y));
+                    RobotMap.Robot robot = (RobotMap.Robot) map.createRobot(new Point(x, y));
                     System.out.println("Робот " + robot + " успешно создан");
                 }
             });
@@ -81,13 +81,13 @@ public class RobotGameMain {
                 @Override
                 public void runCommand(String[] args) {
                     map.acceptRobots(System.out::println);
-          //        map.acceptRobots(robot -> System.out.println(robot));
-          //        map.acceptRobots(new Consumer<RobotMap.Robot>() {
-          //            @Override
-          //            public void accept(RobotMap.Robot robot) {
-          //                System.out.println(robot);
-          //            }
-          //        });
+                //  map.acceptRobots(robot -> System.out.println(robot));
+                //  map.acceptRobots(new Consumer<RobotMap.Robot>() {
+                //      @Override
+                //      public void accept(RobotMap.Robot robot) {
+                //          System.out.println(robot);
+                //      }
+                //  });
                 }
             });
         }

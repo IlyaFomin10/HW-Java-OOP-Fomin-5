@@ -14,8 +14,17 @@ public class RobotMap {
         this.m = m;
         this.robots = new ArrayList<>();
     }
+    
+    // New interface
+    public interface RobotInterface {
+        Direction getDirection();
+        Long getId();
+        void changeDirection(Direction direction);
+        void move();
+        String toString();
+    }
 
-    public Robot createRobot(Point point) {
+    public RobotInterface createRobot(Point point) {
         validatePoint(point);
         Robot robot = new Robot(point);
         robots.add(robot);
@@ -69,7 +78,7 @@ public class RobotMap {
         return false;
     }
 
-    public class Robot {
+    public class Robot implements RobotInterface {
 
         public static final Direction DEFAULT_DIRECTION = Direction.TOP;
 
@@ -107,6 +116,20 @@ public class RobotMap {
         public String toString() {
             return "[" + id + "] " + point.toString() + " [" + direction.name() + "]";
         }
+
+        @Override
+        public Direction getDirection() {
+            // 
+            throw new UnsupportedOperationException("Unimplemented method 'getDirection'");
+        }
+
+        @Override
+        public Long getId() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getId'");
+        }
+
+
     }
 
 }
